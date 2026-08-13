@@ -1,6 +1,6 @@
 # Regras editoriais para IA — Curadoria Prime
 
-**Versão:** 1.0  
+**Versão:** 1.1  
 **Data:** 12/08/2026  
 **Aplicação:** criação, atualização e revisão de artigos do `curadoriaprime.com`
 **Status:** FONTE CANÔNICA — este é o único arquivo de regras que deve ser editado.
@@ -144,6 +144,26 @@ Nenhum conteúdo pode ser publicado sem revisão humana de:
 - nota editorial;
 - schema;
 - título e intenção de busca.
+
+### 2.7. Nenhum produto recomendado sem pontos de atenção verificáveis
+
+Recomendar com preço e link de compra e sem contraponto real é anúncio, não review. O Google trata listicles “melhores X” sem limitação concreta como sinal de conteúdo enviesado.
+
+**Bloqueia publicação** se qualquer produto com CTA de compra não tiver, no próprio bloco ou imediatamente abaixo:
+
+1. um título exatamente `Pontos de Atenção`, `Contras` ou `Pontos Negativos` em `<h2>`–`<h6>`;
+2. uma `<ul>` com **no mínimo 3 itens**;
+3. cada item verificável por especificação oficial, limitação objetiva (o que o produto não faz) ou reclamação recorrente atribuída (Reclame Aqui, avaliações de compra verificada, teste independente).
+
+É proibido:
+
+- contra disfarçado de elogio (“a única desvantagem é ser bom demais”);
+- inventar falha para fechar a cota de 3 (CDC art. 37);
+- um único bloco genérico para cinco SKUs diferentes.
+
+Se a pesquisa não sustentar 3 pontos, o produto **sai da recomendação** ou a pendência vai para `[VERIFICAÇÃO HUMANA NECESSÁRIA]` — não se completa com texto inventado.
+
+O checker (`tools/checar_conformidade.py`) localiza o primeiro bloco com esses títulos e conta os `<li>`. Menos de 3 ou bloco ausente = alerta `[imparcialidade]`. Em listicle, cada ficha de produto precisa do bloco; o primeiro da página deve ter ≥3 itens.
 
 ---
 
@@ -591,7 +611,7 @@ A estrutura é flexível. Use apenas seções relevantes:
 10. **Experiência de terceiros, sempre atribuída**
 11. **Síntese editorial de avaliações de compradores**
 12. **Comparação com concorrentes**
-13. **Prós e contras**
+13. **Prós e contras** — os contras seguem a §2.7 (mínimo 3 pontos de atenção verificáveis por produto recomendado; ausência bloqueia)
 14. **Faixa de preço em que vale a pena**
 15. **Veredito final coerente**
 16. **Nota editorial e metodologia, se aplicável**
@@ -657,6 +677,7 @@ O artigo **não pode ser publicado** se qualquer resposta abaixo for “não”:
 - [ ] A página responde rapidamente à intenção de busca?
 - [ ] Há informação própria além de ficha técnica e resumo de terceiros?
 - [ ] Está claro quem deve e quem não deve comprar?
+- [ ] Cada produto recomendado tem bloco `Pontos de Atenção` / `Contras` / `Pontos Negativos` com no mínimo 3 itens verificáveis (§2.7)?
 - [ ] Prós, contras, nota e veredito são coerentes?
 - [ ] Não há introdução genérica, repetição ou superlativos vazios?
 
@@ -698,7 +719,7 @@ REGRAS ABSOLUTAS
 9. Não use alegações como “nível médico”, “100%”, “totalmente resistente”, “garantido”, “sem risco”, “o melhor” ou “comprovado” sem fonte exata, atribuição e ressalvas.
 10. Preços e estoque devem ter loja e data. Informe que podem mudar. Não invente promoções, cupons ou priceValidUntil.
 11. Inclua aviso visível de afiliado: “Este artigo contém links de afiliado. Se você comprar por meio deles, a Curadoria Prime pode receber uma comissão, sem custo adicional para você. Isso não altera nossos critérios editoriais.” Links devem usar rel="sponsored nofollow".
-12. Acrescente valor próprio: indique quem deve e quem não deve comprar; compare concorrentes; explique faixa de preço; compatibilidade no Brasil; garantia; certificações; custo total; limitações; problemas recorrentes e critérios de decisão.
+12. Acrescente valor próprio: indique quem deve e quem não deve comprar; compare concorrentes; explique faixa de preço; compatibilidade no Brasil; garantia; certificações; custo total; limitações; problemas recorrentes e critérios de decisão. Nenhum produto com link de compra pode ser publicado sem bloco de título exatamente "Pontos de Atenção", "Contras" ou "Pontos Negativos" seguido de lista com no mínimo 3 itens verificáveis. Ausência do bloco bloqueia. Não invente contra.
 13. Não copie concorrentes, não faça keyword stuffing, não use introduções genéricas e não repita a conclusão para aumentar o tamanho.
 14. Nota editorial não é obrigatória. Se houver, mostre escala, critérios, pesos ou justificativa, notas parciais e coerência com o veredito. A comissão nunca influencia a nota.
 15. Preserve URL e canonical em atualizações. Não troque data nem ano apenas para parecer novo. Só altere dateModified após revisão substancial.
