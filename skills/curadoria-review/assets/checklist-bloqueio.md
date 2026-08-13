@@ -36,6 +36,7 @@ A IA preenche o checklist na entrega. O editor humano é quem libera.
 - [ ] A página responde rapidamente à intenção de busca?
 - [ ] Há informação própria além de ficha técnica e resumo de terceiros?
 - [ ] Está claro quem deve e quem não deve comprar?
+- [ ] Cada produto recomendado tem `Pontos de Atenção` / `Contras` / `Pontos Negativos` com ≥3 itens verificáveis (§2.7)?
 - [ ] Prós, contras, nota e veredito são coerentes?
 - [ ] Não há introdução genérica, repetição ou superlativos vazios?
 
